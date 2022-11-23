@@ -17,4 +17,9 @@ public interface CursoCompetenciaRepository extends JpaRepository<CursoxCompeten
     void saveCursoCompetencia(@Param("idcurso")int idcurso,
                            @Param("idcompetencia")int idcompetencia);
 
+    @Transactional
+    @Modifying
+    @Query(value = "call usp_deleteCursoxCompetencia(:idcursosp,:idcompetenciasp)",nativeQuery = true)
+    void deleteCursoxCompetencia(@Param("idcursosp")int idcurso,
+                     @Param("idcompetenciasp")int idcompetencia);
 }

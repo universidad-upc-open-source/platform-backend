@@ -18,7 +18,7 @@ public class EstudianteService {
     }
 
     public List<Estudiantes> listaEstiduanteGradoSeccion(int idcurso){
-        return estudianteRepository.listaEstiduanteGradoSeccion(idcurso);
+            return estudianteRepository.listaEstiduanteGradoSeccion(idcurso);
     }
     public void deleteEstudiante(Estudiantes estudiantes){
         estudianteRepository.deleteEstudiante(estudiantes.getIdestudiante());

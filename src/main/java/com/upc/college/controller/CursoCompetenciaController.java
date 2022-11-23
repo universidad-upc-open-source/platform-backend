@@ -2,6 +2,7 @@ package com.upc.college.controller;
 
 import com.upc.college.entity.Competencia;
 import com.upc.college.entity.CursoxCompetencia;
+import com.upc.college.entity.Docente;
 import com.upc.college.service.CompetenciaService;
 import com.upc.college.service.CursoCompetenciaService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,4 +25,10 @@ public class CursoCompetenciaController {
         return new ResponseEntity<>("ok", HttpStatus.OK);
     }
 
+    @CrossOrigin("http://localhost:4200")
+    @PutMapping("/delete")
+    public ResponseEntity<?> deleteCursoxCompetencia(@RequestBody CursoxCompetencia cursoxCompetencia){
+        cursoCompetenciaService.deleteCursoxCompetencia(cursoxCompetencia);
+        return new ResponseEntity<>("ok", HttpStatus.OK);
+    }
 }

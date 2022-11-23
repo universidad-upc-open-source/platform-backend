@@ -1,6 +1,7 @@
 package com.upc.college.service;
 
 import com.upc.college.entity.Competencia;
+import com.upc.college.entity.Curso;
 import com.upc.college.entity.CursoxCompetencia;
 import com.upc.college.repository.CompetenciaRepository;
 import com.upc.college.repository.CursoCompetenciaRepository;
@@ -16,5 +17,7 @@ public class CursoCompetenciaService {
     public void saveCursoCompetencia(CursoxCompetencia cursoxCompetencia){
         cursoCompetenciaRepository.saveCursoCompetencia(cursoxCompetencia.getCurso().getIdcurso(),cursoxCompetencia.getCompetencia().getIdcompetencia());
     }
-
+    public void deleteCursoxCompetencia(CursoxCompetencia cursoxCompetencia){
+        cursoCompetenciaRepository.deleteCursoxCompetencia(cursoxCompetencia.getCurso().getIdcurso(),cursoxCompetencia.getCompetencia().getIdcompetencia());
+    }
 }

@@ -21,6 +21,10 @@ public class CursoDocenteService {
         return cursoDocenteRepository.listaCursoxDocente(idcurso);
     }
 
+    public List<CursoDocente> listaCursoDocente(int idcurso){
+        return cursoDocenteRepository.listaCursoDocente(idcurso);
+    }
+
     public void saveCursoxDocente(CursoDocente cursoDocente){
         cursoDocenteRepository.saveDocentexCurso(cursoDocente.getDocente().getIddocente(),cursoDocente.getCurso().getIdcurso(),cursoDocente.getGrado().getIdgrado(),cursoDocente.getSeccion().getIdseccion());
     }

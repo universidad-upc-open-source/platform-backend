@@ -19,6 +19,6 @@ public interface MenuRepository extends JpaRepository<Menu,Integer> {
                      @Param("ruta")String ruta,
                      @Param("idtipousuario")int idtipousuario);
 
-    @Query(value = "call usp_listarMenu(:idtipousuariosp)", nativeQuery = true)
-    List<Menu> listarMenu(@Param("idtipousuariosp") int idtipousuario);
+    @Query(value = "call usp_listarMenu(:iddocentesp)", nativeQuery = true)
+    List<Menu> listarMenu(@Param("iddocentesp") int iddocente);
 }

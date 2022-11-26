@@ -1,7 +1,6 @@
 package com.upc.college.controller;
 
 import com.upc.college.entity.Docente;
-import com.upc.college.entity.TipoUsuario;
 import com.upc.college.service.DocenteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -9,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
 
 @RestController
 @RequestMapping("/api/docente")
@@ -63,6 +63,4 @@ public class DocenteController {
         List<Docente> login = docenteService.login(gmail,pass);
         return new ResponseEntity<>(login, HttpStatus.OK);
     }
-
-
 }

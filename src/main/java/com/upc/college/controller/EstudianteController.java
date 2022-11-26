@@ -31,6 +31,12 @@ public class EstudianteController {
         List<Estudiantes> lista = estudianteService.listaEstiduanteGradoSeccion(idcurso);
         return new ResponseEntity<>(lista, HttpStatus.OK);
     }
+    @CrossOrigin("http://localhost:4200")
+    @GetMapping("/listaAlumnosxDocente/{iddocentesp}")
+    public ResponseEntity<List<Estudiantes>> listaAlumnosxDocente(@PathVariable("iddocentesp") int iddocente){
+        List<Estudiantes> lista = estudianteService.listaAlumnosxDocente(iddocente);
+        return new ResponseEntity<>(lista, HttpStatus.OK);
+    }
 
     @CrossOrigin("http://localhost:4200")
     @PutMapping("/delete")

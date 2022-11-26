@@ -35,4 +35,7 @@ public interface CursoDocenteRepository extends JpaRepository<CursoDocente,Integ
 
     @Query(value = "{call usp_listCursoxDocente(:idcursosp)}", nativeQuery = true)
     List<CursoDocente> listaCursoxDocente(@Param("idcursosp") int idcurso);
+
+    @Query(value = "{call usp_listCursoDocente(:iddocentesp)}", nativeQuery = true)
+    List<CursoDocente> listaCursoDocente(@Param("iddocentesp") int iddocente);
 }

@@ -21,6 +21,7 @@ public class Docente {
 
     private int estado;
 
+
     public Docente() {
     }
 

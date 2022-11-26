@@ -17,6 +17,9 @@ public interface EstudianteRepository extends JpaRepository<Estudiantes,Integer>
     @Query(value = "{call usp_listEstudianteGradoSeccion(:idcursosp)}", nativeQuery = true)
     List<Estudiantes> listaEstiduanteGradoSeccion(@Param("idcursosp") int idcurso);
 
+    @Query(value = "{call usp_listaAlumnosxDocente(:iddocentesp)}", nativeQuery = true)
+    List<Estudiantes> listaAlumnosxDocente(@Param("iddocentesp") int iddocente);
+
     @Transactional
     @Modifying
     @Query(value = "call usp_eliminarEstudiante(:idestudiantesp)",nativeQuery = true)

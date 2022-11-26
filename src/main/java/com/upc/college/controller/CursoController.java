@@ -21,12 +21,6 @@ public class CursoController {
         cursoService.saveCurso(curso);
         return new ResponseEntity<>("ok", HttpStatus.OK);
     }
-    /*@CrossOrigin("http://localhost:4200")
-    @PutMapping("/update")
-    public ResponseEntity<?> updateCurso(@RequestBody Curso curso){
-        cursoService.updateCurso(curso);
-        return new ResponseEntity<>("ok", HttpStatus.OK);
-    }*/
     @CrossOrigin("http://localhost:4200")
     @PutMapping("/delete")
     public ResponseEntity<?> deleteCurso(@RequestBody Curso curso){

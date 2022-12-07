@@ -14,41 +14,43 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/cursoxdocente")
+@CrossOrigin(origins = "*", allowedHeaders = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 public class CursoDocenteController {
     @Autowired
     CursoDocenteService cursoDocenteService;
 
-    @CrossOrigin("http://localhost:4200")
+    //    @CrossOrigin("http://localhost:4200")
     @GetMapping("/lista")
-    public ResponseEntity<List<CursoDocente>> lista(){
+    public ResponseEntity<List<CursoDocente>> lista() {
         List<CursoDocente> lista = cursoDocenteService.lista();
         return new ResponseEntity<>(lista, HttpStatus.OK);
     }
 
-    @CrossOrigin("http://localhost:4200")
+    //    @CrossOrigin("http://localhost:4200")
     @GetMapping("/listaCursoDocente/{iddocente}")
-    public ResponseEntity<List<CursoDocente>> listaCursoDocente(@PathVariable("iddocente") int iddocente){
+    public ResponseEntity<List<CursoDocente>> listaCursoDocente(@PathVariable("iddocente") int iddocente) {
         List<CursoDocente> lista = cursoDocenteService.listaCursoDocente(iddocente);
         return new ResponseEntity<>(lista, HttpStatus.OK);
     }
 
 
-    @CrossOrigin("http://localhost:4200")
+    //    @CrossOrigin("http://localhost:4200")
     @GetMapping("/listaDocentexCurso/{idcurso}")
-    public ResponseEntity<List<CursoDocente>> listaCursoxDocente(@PathVariable("idcurso") int idcurso){
+    public ResponseEntity<List<CursoDocente>> listaCursoxDocente(@PathVariable("idcurso") int idcurso) {
         List<CursoDocente> lista = cursoDocenteService.listaCursoxDocente(idcurso);
         return new ResponseEntity<>(lista, HttpStatus.OK);
     }
-    @CrossOrigin("http://localhost:4200")
+
+    //    @CrossOrigin("http://localhost:4200")
     @PostMapping("/save")
-    public ResponseEntity<?> saveDocentexCurso(@RequestBody CursoDocente cursoDocente){
+    public ResponseEntity<?> saveDocentexCurso(@RequestBody CursoDocente cursoDocente) {
         cursoDocenteService.saveCursoxDocente(cursoDocente);
         return new ResponseEntity<>("ok", HttpStatus.OK);
     }
 
-    @CrossOrigin("http://localhost:4200")
+    //    @CrossOrigin("http://localhost:4200")
     @PutMapping("/update")
-    public ResponseEntity<?> updateDocentexCurso(@RequestBody CursoDocente cursoDocente){
+    public ResponseEntity<?> updateDocentexCurso(@RequestBody CursoDocente cursoDocente) {
         cursoDocenteService.updateCursoxDocente(cursoDocente);
         return new ResponseEntity<>("ok", HttpStatus.OK);
     }

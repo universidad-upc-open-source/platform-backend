@@ -14,18 +14,19 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/cursoCompetencia")
+@CrossOrigin(origins = "*", allowedHeaders = "*", methods = {RequestMethod.GET,RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 public class CursoCompetenciaController {
     @Autowired
     CursoCompetenciaService cursoCompetenciaService;
 
-    @CrossOrigin("http://localhost:4200")
+    //@CrossOrigin("http://localhost:4200")
     @PostMapping("/save")
     public ResponseEntity<?> saveCursoCompetencia(@RequestBody CursoxCompetencia cursoxCompetencia){
         cursoCompetenciaService.saveCursoCompetencia(cursoxCompetencia);
         return new ResponseEntity<>("ok", HttpStatus.OK);
     }
 
-    @CrossOrigin("http://localhost:4200")
+   // @CrossOrigin("http://localhost:4200")
     @PutMapping("/delete")
     public ResponseEntity<?> deleteCursoxCompetencia(@RequestBody CursoxCompetencia cursoxCompetencia){
         cursoCompetenciaService.deleteCursoxCompetencia(cursoxCompetencia);

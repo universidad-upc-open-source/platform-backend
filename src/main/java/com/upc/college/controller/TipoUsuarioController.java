@@ -11,18 +11,20 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/usuario")
+@CrossOrigin(origins = "*", allowedHeaders = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 public class TipoUsuarioController {
     @Autowired
     TipoUsuarioService tipoUsuarioService;
 
     @GetMapping("/lista")
-    public ResponseEntity<List<TipoUsuario>> lista(){
+    public ResponseEntity<List<TipoUsuario>> lista() {
         List<TipoUsuario> lista = tipoUsuarioService.lista();
         return new ResponseEntity<>(lista, HttpStatus.OK);
     }
-    @CrossOrigin("http://localhost:4200")
+
+    //    @CrossOrigin("http://localhost:4200")
     @GetMapping("/lista/{opcion}")
-    public ResponseEntity<List<TipoUsuario>> listaxId(@PathVariable("opcion") int opcion){
+    public ResponseEntity<List<TipoUsuario>> listaxId(@PathVariable("opcion") int opcion) {
         List<TipoUsuario> lista = tipoUsuarioService.listaxId(opcion);
         return new ResponseEntity<>(lista, HttpStatus.OK);
     }

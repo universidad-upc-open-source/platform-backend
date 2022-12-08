@@ -13,26 +13,28 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/nota")
+@CrossOrigin(origins = "*", allowedHeaders = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 public class NotasController {
     @Autowired
     NotasService notasService;
 
-    @CrossOrigin("http://localhost:4200")
+    //    @CrossOrigin("http://localhost:4200")
     @GetMapping("/listaNotasxCurso/{idcursosp}")
-    public ResponseEntity<List<Notas>> listaNotasxCurso(@PathVariable("idcursosp") int idcurso){
+    public ResponseEntity<List<Notas>> listaNotasxCurso(@PathVariable("idcursosp") int idcurso) {
         List<Notas> lista = notasService.listaNotasxCurso(idcurso);
         return new ResponseEntity<>(lista, HttpStatus.OK);
     }
-    @CrossOrigin("http://localhost:4200")
+
+    //    @CrossOrigin("http://localhost:4200")
     @PostMapping("/save")
-    public ResponseEntity<?> saveNotasxCurso(@RequestBody Notas notas){
+    public ResponseEntity<?> saveNotasxCurso(@RequestBody Notas notas) {
         notasService.saveNotasxCurso(notas);
         return new ResponseEntity<>("ok", HttpStatus.OK);
     }
 
-    @CrossOrigin("http://localhost:4200")
+    //    @CrossOrigin("http://localhost:4200")
     @GetMapping("/listarNotasxProfesor/{iddocentesp}")
-    public ResponseEntity<List<Notas>> listalistarNotasxProfesor(@PathVariable("iddocentesp") int idcurso){
+    public ResponseEntity<List<Notas>> listalistarNotasxProfesor(@PathVariable("iddocentesp") int idcurso) {
         List<Notas> lista = notasService.listalistarNotasxProfesor(idcurso);
         return new ResponseEntity<>(lista, HttpStatus.OK);
     }

@@ -14,20 +14,21 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/menu")
+@CrossOrigin(origins = "*", allowedHeaders = "*", methods = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE})
 public class MenuController {
     @Autowired
     MenuService menuService;
 
-    @CrossOrigin("http://localhost:4200")
+    //    @CrossOrigin("http://localhost:4200")
     @GetMapping("/lista/{idtipousuario}")
-    public ResponseEntity<List<Menu>> lista(@PathVariable("idtipousuario") int idtipousuario){
+    public ResponseEntity<List<Menu>> lista(@PathVariable("idtipousuario") int idtipousuario) {
         List<Menu> lista = menuService.listaMenu(idtipousuario);
         return new ResponseEntity<>(lista, HttpStatus.OK);
     }
 
-    @CrossOrigin("http://localhost:4200")
+    //    @CrossOrigin("http://localhost:4200")
     @PostMapping("/save")
-    public ResponseEntity<?> saveMenu(@RequestBody Menu menu){
+    public ResponseEntity<?> saveMenu(@RequestBody Menu menu) {
         menuService.saveMenu(menu);
         return new ResponseEntity<>("ok", HttpStatus.OK);
     }

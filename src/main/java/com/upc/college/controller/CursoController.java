@@ -39,4 +39,11 @@ public class CursoController {
         List<Curso> lista = cursoService.lista();
         return new ResponseEntity<>(lista, HttpStatus.OK);
     }
+
+    @CrossOrigin("http://localhost:4200")
+    @PutMapping("/update")
+    public ResponseEntity<?> updateCurso(@RequestBody Curso curso){
+        cursoService.updateCurso(curso);
+        return new ResponseEntity<>("ok", HttpStatus.OK);
+    }
 }

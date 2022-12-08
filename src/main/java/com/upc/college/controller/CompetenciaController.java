@@ -47,6 +47,13 @@ public class CompetenciaController {
     }
 
     @CrossOrigin("http://localhost:4200")
+    @PutMapping("/update")
+    public ResponseEntity<?> updateCompetencia(@RequestBody Competencia competencia){
+        competenciaService.updateCompetencia(competencia);
+        return new ResponseEntity<>("ok", HttpStatus.OK);
+    }
+
+    @CrossOrigin("http://localhost:4200")
     @GetMapping("/ListCompetenciaNotCurso/{idcurso}")
     public ResponseEntity<List<Competencia>> ListCompetenciaNotCurso(@PathVariable("idcurso") int idcurso){
         List<Competencia> lista = competenciaService.ListCompetenciaNotCurso(idcurso);

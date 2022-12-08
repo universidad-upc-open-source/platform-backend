@@ -30,6 +30,10 @@ public class CompetenciaService {
         competenciaRepository.activarCompetencia(competencia.getIdcompetencia());
     }
 
+    public void updateCompetencia(Competencia competencia){
+        competenciaRepository.updateCompetencia(competencia.getIdcompetencia(),competencia.getNombre());
+    }
+
     public List<Competencia> ListCompetenciaNotCurso(int idcurso){
         return competenciaRepository.ListCompetenciaNotCurso(idcurso);
     }

@@ -17,11 +17,12 @@ public interface CursoRepository extends JpaRepository<Curso,Integer> {
     void saveCurso(@Param("nombresp")String nombre,
                      @Param("fotosp")String foto);
 
-    /*@Transactional
+    @Transactional
     @Modifying
-    @Query(value = "{call usp_updateCurso(:nombressp,:fotosp)}",nativeQuery = true)
-    void updateCurso(@Param("nombresp")String nombre,
-                       @Param("fotosp")String foto);*/
+    @Query(value = "{call usp_updateCurso(:idcursosp,:nombresp,:fotosp)}",nativeQuery = true)
+    void updateCurso(@Param("idcursosp")Integer idcurso,
+                     @Param("nombresp")String nombre,
+                     @Param("fotosp")String foto);
     @Transactional
     @Modifying
     @Query(value = "call usp_deleteCurso(:idcursosp)",nativeQuery = true)

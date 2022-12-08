@@ -57,4 +57,10 @@ public class EstudianteController {
         estudianteService.saveEstudiante(estudiantes);
         return new ResponseEntity<>("ok", HttpStatus.OK);
     }
+    @CrossOrigin("http://localhost:4200")
+    @PutMapping("/update")
+    public ResponseEntity<?> updateEstudiante(@RequestBody Estudiantes estudiantes){
+        estudianteService.updateEstudiante(estudiantes);
+        return new ResponseEntity<>("ok", HttpStatus.OK);
+    }
 }

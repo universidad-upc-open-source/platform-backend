@@ -32,6 +32,16 @@ public interface EstudianteRepository extends JpaRepository<Estudiantes,Integer>
 
     @Transactional
     @Modifying
+    @Query(value = "call usp_updateEstudiante(:idestudiantesp,:nombressp,:apellidossp,:dnisp,:idgradosp,:idseccionsp)",nativeQuery = true)
+    void updateEstudiante(@Param("idestudiantesp")int idestudiante,
+                          @Param("nombressp")String nombres,
+                          @Param("apellidossp")String apellidos,
+                          @Param("dnisp")String dni,
+                          @Param("idgradosp")int idgrado,
+                          @Param("idseccionsp")int idseccion);
+
+    @Transactional
+    @Modifying
     @Query(value = "call usp_saveEstudiante(:nombressp,:apellidossp,:dnisp,:idgradosp,:idseccionsp)",nativeQuery = true)
     void saveEstudiante(@Param("nombressp")String nombressp,
                         @Param("apellidossp")String apellidossp,

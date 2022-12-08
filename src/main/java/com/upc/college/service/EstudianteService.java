@@ -32,6 +32,11 @@ public class EstudianteService {
         estudianteRepository.activateEstudiante(estudiantes.getIdestudiante());
     }
 
+    public void updateEstudiante(Estudiantes estudiantes){
+        estudianteRepository.updateEstudiante(estudiantes.getIdestudiante(),estudiantes.getNombres(),estudiantes.getApellidos(),
+                estudiantes.getDni(),estudiantes.getGrado().getIdgrado(),estudiantes.getSeccion().getIdseccion());
+    }
+
     public void saveEstudiante(Estudiantes estudiantes){
         estudianteRepository.saveEstudiante(estudiantes.getNombres(),estudiantes.getApellidos(),estudiantes.getDni(),estudiantes.getGrado().getIdgrado(),estudiantes.getSeccion().getIdseccion());
     }

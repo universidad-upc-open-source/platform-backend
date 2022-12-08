@@ -19,9 +19,9 @@ public class CursoService {
     public void saveCurso(Curso curso){
         cursoRepository.saveCurso(curso.getNombre(),curso.getFoto());
     }
-    /*public void updateCurso(Curso curso){
-        cursoRepository.updateCurso(curso.getNombre(),curso.getFoto());
-    }*/
+    public void updateCurso(Curso curso){
+        cursoRepository.updateCurso(curso.getIdcurso(),curso.getNombre(),curso.getFoto());
+    }
     public void deleteCurso(Curso curso){
         cursoRepository.deleteCurso(curso.getIdcurso());
     }

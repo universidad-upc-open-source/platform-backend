@@ -26,10 +26,6 @@ public interface CursoDocenteRepository extends JpaRepository<CursoDocente,Integ
                        @Param("iddocentesp")int iddocente,
                        @Param("idgradosp")int idgrado,
                        @Param("idseccionsp")int idseccion);
-    /*@Transactional
-    @Modifying
-    @Query(value = "call usp_deleteDocente(:iddocentesp)",nativeQuery = true)
-    void deleteDocente(@Param("iddocentesp")int iddocente);*/
     @Query(value = "{call usp_listarCursoxDocente()}", nativeQuery = true)
     List<CursoDocente> lista();
 
@@ -38,4 +34,5 @@ public interface CursoDocenteRepository extends JpaRepository<CursoDocente,Integ
 
     @Query(value = "{call usp_listCursoDocente(:iddocentesp)}", nativeQuery = true)
     List<CursoDocente> listaCursoDocente(@Param("iddocentesp") int iddocente);
+
 }

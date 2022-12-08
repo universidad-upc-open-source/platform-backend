@@ -35,4 +35,10 @@ public interface CompetenciaRepository extends JpaRepository<Competencia,Integer
     @Modifying
     @Query(value = "call usp_activateCompetencia(:idcompetenciasp)",nativeQuery = true)
     void activarCompetencia(@Param("idcompetenciasp")int idcompetencia);
+
+    @Transactional
+    @Modifying
+    @Query(value = "{call usp_updateCompetencia(:idcompetenciasp,:nombresp)}",nativeQuery = true)
+    void updateCompetencia(@Param("idcompetenciasp")Integer idcompetencia,
+                         @Param("nombresp")String nombre);
 }
